@@ -1,44 +1,33 @@
 import React from 'react';
-import { Stuffs } from '/imports/api/stuff/stuff';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
-import NumField from 'uniforms-semantic/NumField';
+import DateField from 'uniforms-semantic/DateField';
+import LongTextField from 'uniforms-semantic/LongTextField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
-import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
 import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-disable-line
 import SimpleSchema from 'simpl-schema';
 
-/** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
-  name: String,
-  quantity: Number,
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
+  name: { label: 'Name', type: String },
+  bio: { label: 'Biographical Statement', type: String, optional: true, defaultValue: '' },
+  hobbies: { label: 'Hobbies', type: Array, allowedValues: ['Surfing', 'Running', 'Biking', 'Paddling'] },
+  'hobbies.$': String,
+  level: { label: 'Level', type: String, allowedValues: ['Freshman', 'Sophomore', 'Junior', 'Senior'] },
+  gpa: { label: 'GPA', type: String, allowedValues: ['4.0+', '3.0-3.9', '2.0-2.9', '1.0-1.9'] },
+  majors: { label: 'Majors', type: Array, allowedValues: ['Physics', 'Math', 'Chemistry', 'Computer Science'] },
+  'majors.$': String,
+  enrolled: { label: 'Date Enrolled', type: Date, defaultValue: new Date() },
 });
 
 /** Renders the Page for adding a document. */
 class AddStudentData extends React.Component {
 
   /** On submit, insert the data. */
-  submit(data, formRef) {
-    const { name, quantity, condition } = data;
-    const owner = Meteor.user().username;
-    Stuffs.insert({ name, quantity, condition, owner },
-      (error) => {
-        if (error) {
-          swal('Error', error, 'error');
-        } else {
-          swal('Success', 'Item added successfully', 'success');
-          formRef.reset();
-        }
-      });
+  submit() {
+    swal('Success', 'Item added successfully', 'success');
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -47,14 +36,17 @@ class AddStudentData extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Stuff</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
+            <Header as="h2" textAlign="center">Add Student Data</Header>
+            <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
-                <TextField name='name'/>
-                <NumField name='quantity' decimal={false}/>
-                <SelectField name='condition'/>
+                <TextField name='name' showInlineError={true}/>
+                <LongTextField name='bio' showInlineError={true}/>
+                <SelectField name='hobbies' showInlineError={true}/>
+                <SelectField name='level' showInlineError={true}/>
+                <SelectField name='gpa' showInlineError={true}/>
+                <SelectField name='majors' showInlineError={true}/>
+                <DateField name='enrolled' showInlineError={true}/>
                 <SubmitField value='Submit'/>
-                <ErrorsField/>
               </Segment>
             </AutoForm>
           </Grid.Column>
@@ -63,4 +55,4 @@ class AddStudentData extends React.Component {
   }
 }
 
-export default AddStudent Data;
+export default AddStudentData;

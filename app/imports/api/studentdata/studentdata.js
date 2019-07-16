@@ -13,7 +13,7 @@ const StudentDataSchema = new SimpleSchema({
     type: String,
   },
   bio: {
-    label: 'Bio',
+    label: 'Biographical Statement',
     type: String,
     optional: true,
     defaultValue: '',
@@ -21,19 +21,24 @@ const StudentDataSchema = new SimpleSchema({
   hobbies: {
     label: 'Hobbies',
     type: Array,
+    allowedValues: ['Surfing', 'Running', 'Biking', 'Paddling'],
   },
   'hobbies.$': String,
   level: {
     label: 'Level',
     type: String,
+    allowedValues: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
   },
   gpa: {
     label: 'GPA',
     type: String,
+    allowedValues: ['4.0+', '3.0-3.9', '2.0-2.9', '1.0-1.9'],
+
   },
   majors: {
     label: 'Majors',
     type: Array,
+    allowedValues: ['Physics', 'Math', 'Chemistry', 'Computer Science'],
   },
   'majors.$': String,
 }, { tracker: Tracker });

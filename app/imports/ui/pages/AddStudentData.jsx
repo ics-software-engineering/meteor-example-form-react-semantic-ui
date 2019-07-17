@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import DateField from 'uniforms-semantic/DateField';
@@ -46,11 +46,15 @@ class AddStudentData extends React.Component {
               <Segment>
                 <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
                 <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
-                <SelectField name='hobbies' showInlineError={true}/>
-                <SelectField name='level' showInlineError={true} />
-                <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
-                <RadioField name='major' showInlineError={true}/>
-                <DateField name='enrolled' showInlineError={true}/>
+                <Form.Group widths={'equal'}>
+                  <SelectField name='level' showInlineError={true} />
+                  <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
+                  <DateField name='enrolled' showInlineError={true}/>
+                </Form.Group>
+                <Form.Group inline>
+                  <SelectField name='hobbies' showInlineError={true}/>
+                  <RadioField name='major' showInlineError={true}/>
+                </Form.Group>
                 <SubmitField value='Submit'/>
               </Segment>
             </AutoForm>

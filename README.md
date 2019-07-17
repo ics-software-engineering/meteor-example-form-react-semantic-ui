@@ -10,3 +10,5 @@ Things to do:
 * Implement the editStudentData page.
 * Write the index.md
 * Create the screencast. Maybe a PPT to start.
+* Create enrollment collection, it has email and enrollment date as fields.
+* Have form combine data from both collections, and show how to update both. That motivates separate form schema.

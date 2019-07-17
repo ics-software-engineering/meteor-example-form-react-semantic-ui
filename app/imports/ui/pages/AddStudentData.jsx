@@ -19,7 +19,7 @@ const majorValues = ['Physics', 'Math', 'Chemistry', 'Computer Science'];
 const formSchema = new SimpleSchema({
   name: { label: 'Name', type: String },
   bio: { label: 'Biographical Statement', type: String, optional: true, defaultValue: '' },
-  hobbies: { label: 'Hobbies', type: Array },
+  hobbies: { label: 'Hobbies', type: Array, optional: true },
   'hobbies.$': { type: String, allowedValues: hobbieValues },
   level: { label: 'Level', type: String, allowedValues: levelValues, defaultValue: levelValues[0] },
   gpa: { label: 'GPA', type: String, allowedValues: gpaValues },
@@ -44,8 +44,8 @@ class AddStudentData extends React.Component {
             <Header as="h2" textAlign="center">Add Student Data</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
-                <TextField name='name' showInlineError={true}/>
-                <LongTextField name='bio' showInlineError={true}/>
+                <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
+                <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
                 <SelectField name='hobbies' showInlineError={true}/>
                 <SelectField name='level' showInlineError={true} />
                 <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />

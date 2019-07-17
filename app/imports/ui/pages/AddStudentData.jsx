@@ -3,6 +3,7 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import DateField from 'uniforms-semantic/DateField';
+import RadioField from 'uniforms-semantic/RadioField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
@@ -22,8 +23,7 @@ const formSchema = new SimpleSchema({
   'hobbies.$': { type: String, allowedValues: hobbieValues },
   level: { label: 'Level', type: String, allowedValues: levelValues, defaultValue: levelValues[0] },
   gpa: { label: 'GPA', type: String, allowedValues: gpaValues },
-  majors: { label: 'Major(s)', type: Array, minCount: 1 },
-  'majors.$': { type: String, allowedValues: majorValues },
+  major: { label: 'Major', type: String, allowedValues: majorValues },
   enrolled: { label: 'Date Enrolled', type: Date, defaultValue: new Date() },
 });
 
@@ -49,7 +49,7 @@ class AddStudentData extends React.Component {
                 <SelectField name='hobbies' showInlineError={true}/>
                 <SelectField name='level' showInlineError={true} />
                 <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
-                <SelectField name='majors' showInlineError={true}/>
+                <RadioField name='major' showInlineError={true}/>
                 <DateField name='enrolled' showInlineError={true}/>
                 <SubmitField value='Submit'/>
               </Segment>

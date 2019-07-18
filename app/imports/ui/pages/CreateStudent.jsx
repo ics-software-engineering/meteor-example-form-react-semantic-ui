@@ -17,7 +17,7 @@ import { EnrollmentData } from '../../api/enrollmentdata/enrollmentdata';
 /** Renders the Page for adding a document. */
 class CreateStudent extends React.Component {
 
-  /** On submit, insert the data. */
+  /** On submit, try to insert the data. If successful, reset the form. */
   submit(data, formRef) {
     let insertError;
     const { name, email, bio, level, gpa, enrolled, hobbies, major } = data;

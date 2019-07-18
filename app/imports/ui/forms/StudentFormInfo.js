@@ -1,5 +1,5 @@
 import SimpleSchema from 'simpl-schema';
-import { StudentDataValues as DataValues } from '../../api/studentdata/studentdata';
+import { StudentDataValues as DataValues } from '../../api/studentdata/StudentData';
 
 const gpaValues = ['0.0-0.9', '1.0-1.9', '2.0-2.9', '3.0-3.9', '4.0+'];
 

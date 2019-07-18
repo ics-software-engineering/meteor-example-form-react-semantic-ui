@@ -11,8 +11,8 @@ import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import RadioField from '../forms/controllers/RadioField';
 import { StudentFormSchema as formSchema, gpa2Number } from '../forms/StudentFormInfo';
-import { StudentData } from '../../api/studentdata/studentdata';
-import { EnrollmentData } from '../../api/enrollmentdata/enrollmentdata';
+import { StudentData } from '../../api/studentdata/StudentData';
+import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
 
 /** Renders the Page for adding a document. */
 class CreateStudent extends React.Component {

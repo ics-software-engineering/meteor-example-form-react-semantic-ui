@@ -2,18 +2,19 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
-/** Define a Mongo collection to hold student data. */
+/** Define a Mongo collection to hold the data. */
 const StudentData = new Mongo.Collection('StudentData');
 
 const StudentDataValues = {
   hobbies: ['Surfing', 'Running', 'Biking', 'Paddling'],
-  level: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
+  levels: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
   majors: ['Physics', 'Math', 'Chemistry', 'Computer Science'],
 };
 
-/** Define a schema to constrain the data and fields in the StudentData collection. */
+/** Define a schema to specify the structure of each document in the collection. */
 const StudentDataSchema = new SimpleSchema({
   name: String,
+  email: String,
   bio: { type: String, optional: true, defaultValue: '' },
   hobbies: Array,
   'hobbies.$': { type: String, allowedValues: StudentDataValues.hobbies },

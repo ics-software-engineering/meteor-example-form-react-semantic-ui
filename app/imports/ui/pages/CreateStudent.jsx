@@ -8,32 +8,33 @@ import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import swal from 'sweetalert';
 import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-disable-line
-import SimpleSchema from 'simpl-schema';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import RadioField from '../forms/controllers/RadioField';
-
-const hobbieValues = ['Surfing', 'Running', 'Biking', 'Paddling'];
-const levelValues = ['Freshman', 'Sophomore', 'Junior', 'Senior'];
-const gpaValues = ['4.0+', '3.0-3.9', '2.0-2.9', '1.0-1.9'];
-const majorValues = ['Physics', 'Math', 'Chemistry', 'Computer Science'];
-
-const formSchema = new SimpleSchema({
-  name: { label: 'Name', type: String },
-  bio: { label: 'Biographical Statement', type: String, optional: true, defaultValue: '' },
-  hobbies: { label: 'Hobbies', type: Array, optional: true },
-  'hobbies.$': { type: String, allowedValues: hobbieValues },
-  level: { label: 'Level', type: String, allowedValues: levelValues, defaultValue: levelValues[0] },
-  gpa: { label: 'GPA', type: String, allowedValues: gpaValues },
-  major: { label: 'Major', type: String, allowedValues: majorValues },
-  enrolled: { label: 'Date Enrolled', type: Date, defaultValue: new Date() },
-});
+import { StudentFormSchema as formSchema } from '../forms/StudentFormInfo';
+import { StudentData } from '../../api/studentdata/studentdata';
+import { EnrollmentData } from '../../api/enrollmentdata/enrollmentdata';
 
 /** Renders the Page for adding a document. */
-class AddStudentData extends React.Component {
+class CreateStudent extends React.Component {
 
   /** On submit, insert the data. */
-  submit(data) {
-    swal('Success', `Data: ${JSON.stringify(data)}`, 'success');
+  submit(data, formRef) {
+    let insertError;
+    const { name, email, bio, level, gpa, enrolled, hobbies, major } = data;
+    StudentData.insert({name, email, bio, level, gpa, hobbies, major },
+      (error) => { insertError = error; });
+    if (insertError) {
+      swal('Error', insertError.message, 'error');
+    } else {
+      EnrollmentData.insert({ email, enrolled },
+        (error) => { insertError = error; });
+      if (insertError) {
+        swal('Error', insertError.message, 'error');
+      } else {
+        swal('Success', 'The student record was created.', 'success');
+        formRef.reset();
+      }
+    }
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -42,18 +43,21 @@ class AddStudentData extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Student Data</Header>
+            <Header as="h2" textAlign="center">Create Student</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
-                <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
+                <Form.Group widths={'equal'}>
+                  <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
+                  <TextField name='email' showInlineError={true} placeholder={'Your email'}/>
+                </Form.Group>
                 <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
                 <Form.Group widths={'equal'}>
                   <SelectField name='level' showInlineError={true} />
                   <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
                   <DateField name='enrolled' showInlineError={true}/>
                 </Form.Group>
-                  <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies'}/>
-                  <RadioField name='major' inline showInlineError={true}/>
+                <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies'}/>
+                <RadioField name='major' inline showInlineError={true}/>
                 <SubmitField value='Submit'/>
               </Segment>
             </AutoForm>
@@ -63,4 +67,4 @@ class AddStudentData extends React.Component {
   }
 }
 
-export default AddStudentData;
+export default CreateStudent;

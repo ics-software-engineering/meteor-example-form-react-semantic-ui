@@ -8,7 +8,7 @@ const EnrollmentData = new Mongo.Collection('EnrollmentData');
 /** Define a schema to specify the structure of each document in the collection. */
 const EnrollmentDataSchema = new SimpleSchema({
   email: String,
-  enrollmentDate: Date,
+  enrolled: Date,
 }, { tracker: Tracker });
 
 

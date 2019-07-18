@@ -10,7 +10,7 @@ import swal from 'sweetalert';
 import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-disable-line
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import RadioField from '../forms/controllers/RadioField';
-import { StudentFormSchema as formSchema } from '../forms/StudentFormInfo';
+import { StudentFormSchema as formSchema, gpa2Number } from '../forms/StudentFormInfo';
 import { StudentData } from '../../api/studentdata/studentdata';
 import { EnrollmentData } from '../../api/enrollmentdata/enrollmentdata';
 
@@ -21,7 +21,7 @@ class CreateStudent extends React.Component {
   submit(data, formRef) {
     let insertError;
     const { name, email, bio, level, gpa, enrolled, hobbies, major } = data;
-    StudentData.insert({name, email, bio, level, gpa, hobbies, major },
+    StudentData.insert({name, email, bio, level, gpa: gpa2Number(gpa), hobbies, major },
       (error) => { insertError = error; });
     if (insertError) {
       swal('Error', insertError.message, 'error');

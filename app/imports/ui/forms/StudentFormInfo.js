@@ -1,7 +1,10 @@
 import SimpleSchema from 'simpl-schema';
 import { StudentDataValues as DataValues } from '../../api/studentdata/studentdata';
 
-const gpaValues = ['4.0+', '3.0-3.9', '2.0-2.9', '1.0-1.9'];
+const gpaValues = ['0.0-0.9', '1.0-1.9', '2.0-2.9', '3.0-3.9', '4.0+'];
+
+const gpa2String = (num) => gpaValues[num];
+const gpa2Number = (string) => gpaValues.indexOf(string);
 
 const StudentFormSchema = new SimpleSchema({
   name: { label: 'Name', type: String },
@@ -15,4 +18,4 @@ const StudentFormSchema = new SimpleSchema({
   enrolled: { label: 'Date Enrolled', type: Date, defaultValue: new Date() },
 });
 
-export { StudentFormSchema };
+export { StudentFormSchema, gpa2String, gpa2Number };

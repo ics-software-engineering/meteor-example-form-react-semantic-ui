@@ -16,12 +16,11 @@ const StudentDataSchema = new SimpleSchema({
   name: String,
   email: String,
   bio: { type: String, optional: true, defaultValue: '' },
-  hobbies: Array,
+  hobbies: {type: Array, optional: true },
   'hobbies.$': { type: String, allowedValues: StudentDataValues.hobbies },
   level: { type: String, allowedValues: StudentDataValues.level },
   gpa: Number,
-  majors: Array,
-  'majors.$': { type: String, allowedValues: StudentDataValues.majors },
+  major: String,
 }, { tracker: Tracker });
 
 

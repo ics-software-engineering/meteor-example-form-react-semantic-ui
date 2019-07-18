@@ -16,7 +16,7 @@ const StudentDataSchema = new SimpleSchema({
   name: String,
   email: String,
   bio: { type: String, optional: true, defaultValue: '' },
-  hobbies: {type: Array, optional: true },
+  hobbies: { type: Array, optional: true },
   'hobbies.$': { type: String, allowedValues: StudentDataValues.hobbies },
   level: { type: String, allowedValues: StudentDataValues.level },
   gpa: Number,

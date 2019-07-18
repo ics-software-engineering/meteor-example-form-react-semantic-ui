@@ -67,7 +67,7 @@ class CreateStudent extends React.Component {
                 <SubmitField value='Submit'/>
               </Segment>
             </AutoForm>
-            {this.state.email ? <Message>Edit <a href={`/student/${this.state.email}`}>this data</a></Message> : ''}
+            {this.state.email ? <Message>Edit <a href={`/#/student/${this.state.email}`}>this data</a></Message> : ''}
           </Grid.Column>
         </Grid>
     );

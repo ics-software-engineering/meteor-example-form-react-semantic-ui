@@ -16,7 +16,7 @@ class App extends React.Component {
             <NavBar/>
             <Switch>
               <Route exact path="/" component={CreateStudent}/>
-              <Route exact path="/student/:email" component={EditStudent}/>
+              <Route path="/student/:email" component={EditStudent}/>
               <Route component={NotFound}/>
             </Switch>
             <Footer/>

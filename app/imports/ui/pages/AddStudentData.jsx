@@ -3,13 +3,14 @@ import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import DateField from 'uniforms-semantic/DateField';
-import RadioField from 'uniforms-semantic/RadioField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import swal from 'sweetalert';
 import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-disable-line
 import SimpleSchema from 'simpl-schema';
+import MultiSelectField from '../forms/controllers/MultiSelectField';
+import RadioField from '../forms/controllers/RadioField';
 
 const hobbieValues = ['Surfing', 'Running', 'Biking', 'Paddling'];
 const levelValues = ['Freshman', 'Sophomore', 'Junior', 'Senior'];
@@ -51,10 +52,8 @@ class AddStudentData extends React.Component {
                   <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
                   <DateField name='enrolled' showInlineError={true}/>
                 </Form.Group>
-                <Form.Group inline>
-                  <SelectField name='hobbies' showInlineError={true}/>
-                  <RadioField name='major' showInlineError={true}/>
-                </Form.Group>
+                  <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies'}/>
+                  <RadioField name='major' inline showInlineError={true}/>
                 <SubmitField value='Submit'/>
               </Segment>
             </AutoForm>

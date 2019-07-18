@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Form, Message } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import DateField from 'uniforms-semantic/DateField';
@@ -7,53 +7,51 @@ import LongTextField from 'uniforms-semantic/LongTextField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import swal from 'sweetalert';
+import { _ } from 'meteor/underscore';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-disable-line
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import RadioField from '../forms/controllers/RadioField';
-import { StudentFormSchema as formSchema, gpa2Number } from '../forms/StudentFormInfo';
+import { StudentFormSchema as formSchema, gpa2String, gpa2Number } from '../forms/StudentFormInfo';
 import { StudentData } from '../../api/studentdata/studentdata';
 import { EnrollmentData } from '../../api/enrollmentdata/enrollmentdata';
 
-/** Renders the Page for adding a document. */
+/** Renders the Page for editing a document. */
 class EditStudent extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { email: false };
-  }
-
   /** On submit, try to insert the data. If successful, reset the form. */
-  submit(data, formRef) {
+  submit(data) {
     let updateError;
+    const studentId = this.props.studentDoc._id;
+    const enrollmentId = this.props.enrollmentDoc._id;
     const { name, email, bio, level, gpa, enrolled, hobbies, major } = data;
-    StudentData.insert({ name, email, bio, level, gpa: gpa2Number(gpa), hobbies, major },
+    StudentData.update(studentId, { $set: { name, email, bio, level, gpa: gpa2Number(gpa), hobbies, major } },
       (error) => { updateError = error; });
     if (updateError) {
       swal('Error', updateError.message, 'error');
     } else {
-      EnrollmentData.insert({ email, enrolled },
+      EnrollmentData.update(enrollmentId, { $set: { enrolled } },
         (error) => { updateError = error; });
       if (updateError) {
         swal('Error', updateError.message, 'error');
       } else {
-        swal('Success', 'The student record was created.', 'success');
-        this.setState({ email });
-        formRef.reset();
+        swal('Success', 'The student record was updated.', 'success');
       }
     }
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-    let fRef = null;
+    // Build the model object that Uniforms will use to fill in the form.
+    const model = _.extend({}, this.props.studentDoc, this.props.enrollmentDoc);
+    model.gpa = gpa2String(model.gpa);
     return (
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Edit Student</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
+          <AutoForm schema={formSchema} onSubmit={data => this.submit(data)} model={model}>
             <Segment>
               <Form.Group widths={'equal'}>
                 <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
@@ -67,10 +65,9 @@ class EditStudent extends React.Component {
               </Form.Group>
               <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'}/>
               <RadioField name='major' inline showInlineError={true}/>
-              <SubmitField value='Submit'/>
+              <SubmitField value='Update'/>
             </Segment>
           </AutoForm>
-          {this.state.email ? <Message>Edit <a href={`/student/${this.state.email}`}>this data</a></Message> : ''}
         </Grid.Column>
       </Grid>
     );
@@ -79,7 +76,7 @@ class EditStudent extends React.Component {
 
 /** Require a studentdata and enrollment doc.  Uniforms adds 'model' to the props, which we use. */
 EditStudent.propTypes = {
-  studentDataDoc: PropTypes.object,
+  studentDoc: PropTypes.object,
   enrollmentDoc: PropTypes.object,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
@@ -91,8 +88,10 @@ export default withTracker(({ match }) => {
   const email = match.params.email;
   // Request StudentData and Enrollment docs. Won't be locally available until ready() returns true.
   const studentDataSubscription = Meteor.subscribe('StudentData');
+  const enrollmentDataSubscription = Meteor.subscribe('EnrollmentData');
   return {
-    doc: Stuffs.findOne(documentId),
-    ready: subscription.ready(),
+    studentDoc: StudentData.findOne({ email }),
+    enrollmentDoc: EnrollmentData.findOne({ email }),
+    ready: studentDataSubscription.ready() && enrollmentDataSubscription.ready(),
   };
 })(EditStudent);

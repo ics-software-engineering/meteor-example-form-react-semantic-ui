@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Form } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form, Message } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import DateField from 'uniforms-semantic/DateField';
@@ -17,11 +17,16 @@ import { EnrollmentData } from '../../api/enrollmentdata/enrollmentdata';
 /** Renders the Page for adding a document. */
 class CreateStudent extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { email: false };
+  }
+
   /** On submit, try to insert the data. If successful, reset the form. */
   submit(data, formRef) {
     let insertError;
     const { name, email, bio, level, gpa, enrolled, hobbies, major } = data;
-    StudentData.insert({name, email, bio, level, gpa: gpa2Number(gpa), hobbies, major },
+    StudentData.insert({ name, email, bio, level, gpa: gpa2Number(gpa), hobbies, major },
       (error) => { insertError = error; });
     if (insertError) {
       swal('Error', insertError.message, 'error');
@@ -32,6 +37,7 @@ class CreateStudent extends React.Component {
         swal('Error', insertError.message, 'error');
       } else {
         swal('Success', 'The student record was created.', 'success');
+        this.setState({ email });
         formRef.reset();
       }
     }
@@ -61,6 +67,7 @@ class CreateStudent extends React.Component {
                 <SubmitField value='Submit'/>
               </Segment>
             </AutoForm>
+            {this.state.email ? <Message>Edit <a href={`/student/${this.state.email}`}>this data</a></Message> : ''}
           </Grid.Column>
         </Grid>
     );

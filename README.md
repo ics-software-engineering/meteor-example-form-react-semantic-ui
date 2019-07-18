@@ -4,10 +4,6 @@ For details, please see http://ics-software-engineering.github.io/meteor-example
 
 Things to do:
 
-* Subscribe to StudentData in CreateStudent page. 
-* Check for existing email address; fail the create if found.
-* Add setState to save the email address when create is successful, display the link.
-
 * Implement the editStudentData page.
 * Write the index.md
 * Create the screencast. Maybe a PPT to start.
@@ -16,3 +12,5 @@ Things to do:
 * add email field as slug
 
 * Need to use consistent case for all file names. Here and in meteor-application-template-react.
+
+Create an assignment where you have to check to see if the email is already in database and not add the record if not found.

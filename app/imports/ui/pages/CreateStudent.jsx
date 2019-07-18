@@ -56,7 +56,7 @@ class CreateStudent extends React.Component {
                   <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
                   <DateField name='enrolled' showInlineError={true}/>
                 </Form.Group>
-                <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies'}/>
+                <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'}/>
                 <RadioField name='major' inline showInlineError={true}/>
                 <SubmitField value='Submit'/>
               </Segment>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Form } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form, Loader } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import DateField from 'uniforms-semantic/DateField';
@@ -42,8 +42,13 @@ class EditStudent extends React.Component {
     }
   }
 
-  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
+  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
+  renderPage() {
     // Build the model object that Uniforms will use to fill in the form.
     const model = _.extend({}, this.props.studentDoc, this.props.enrollmentDoc);
     model.gpa = gpa2String(model.gpa);

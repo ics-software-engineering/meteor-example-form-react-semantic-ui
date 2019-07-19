@@ -1,5 +1,5 @@
-title: meteor-application-template-react
-description: A template for quickly starting Meteor application development
+title: meteor-example-form-react
+description: How to implement forms in Meteor using Uniforms
 google_analytics:
 show_downloads: true
 theme: jekyll-theme-cayman

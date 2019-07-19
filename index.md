@@ -91,7 +91,7 @@ To best understand this application, it is useful to first familiarize yourself 
 
 The landing page for this application provides the Create Student form:
 
-
+![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page.png)
 
 
 ## Screencasts

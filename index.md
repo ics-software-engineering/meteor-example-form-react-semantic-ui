@@ -93,6 +93,31 @@ The landing page for this application provides the Create Student form:
 
 ![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page.png)
 
+This form has the following input controls:
+
+* Name and Email: text fields, both required.
+* Biographical statement: text area, optional.
+* Level: select field, required. Default is Freshman
+* GPA: select field, required. User must choose one.
+* Date enrolled: date field. Defaults to current time and day.
+* Hobbies: multiple select field (custom implementation of a Uniform controller, code is [here](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/imports/ui/forms/controllers/MultiSelectField.jsx)).
+* Major: select field implemented as Radio buttons (custom implementation to provide inline layout, code is [here])(https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/imports/ui/forms/controllers/RadioField.jsx).
+
+A filled out but not yet submitted Create Student form looks like this:
+
+
+![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page-filled-in.png)
+
+After submission, the page pops up an alert showing the submission was successful:
+
+![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page-submitted.png)
+
+Also note that after dismissing the alert, there is a link of the Create Student page to a page where you can edit the document. Here is this page:
+
+![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/edit-student-page.png)
+
+
+
 
 ## Screencasts
 

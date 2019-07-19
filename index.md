@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/landing-page.png)
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-form-react/master/doc/create-student-page.png)
 
 meteor-example-form-react is a sample Meteor 1.8 application that illustrates how to use [Uniforms](https://uniforms.tools/) for form development. 
 

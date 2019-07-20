@@ -70,7 +70,7 @@ On some operating systems (particularly Windows), installing bcrypt is much more
 
 ### Viewing the running app
 
-If all goes well, the template application will appear at [http://localhost:3000](http://localhost:3000).  
+If all goes well, the application will appear at [http://localhost:3000](http://localhost:3000).  
 
 ### ESLint
 
@@ -104,7 +104,7 @@ This form has the following input controls:
 * GPA: select field, required. User must choose one.
 * Date enrolled: date field. Defaults to current time and day.
 * Hobbies: multiple select field (custom implementation of a Uniform controller, code is [here](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/imports/ui/forms/controllers/MultiSelectField.jsx)).
-* Major: select field implemented as Radio buttons (custom implementation to provide inline layout, code is [here])(https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/imports/ui/forms/controllers/RadioField.jsx).
+* Major: select field implemented as Radio buttons (custom implementation to provide inline layout, code is [here](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/imports/ui/forms/controllers/RadioField.jsx)).
 
 A filled out but not yet submitted Create Student form looks like this:
 

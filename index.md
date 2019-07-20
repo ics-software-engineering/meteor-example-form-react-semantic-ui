@@ -26,11 +26,6 @@ $ meteor npm install
 
 Once the libraries are installed, you can run the application by invoking the "start" script in the [package.json file](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/package.json):
 
-```
-$ meteor npm run start
-```
-
-The first time you run the app, it will create some default users and data. Here is the output:
 
 ```
 meteor npm run start

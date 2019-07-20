@@ -2,6 +2,14 @@
 
 meteor-example-form-react is a sample Meteor 1.8 application that illustrates how to use [Uniforms](https://uniforms.tools/) for form development. 
 
+Some of the features of this example:
+
+* In order to focus on form processing, the application has just two pages: Create Student and Edit Student. 
+* A variety of common controllers are shown: text box, text area, single selection, multiple selection, date selection, and radio boxes.
+* Two customized versions of Uniform controllers illustrate how to extend the built-in Uniforms controllers.
+* The forms in this example update two Mongo collections, illustrating the situation where there is not a one-to-one correspondence between the collection schema and the form schema. 
+* There is a 35 minute [YouTube screencast](https://www.youtube.com/watch?v=ZCHf_rNbDaM) providing a walkthrough of the code.
+
 ## Installation
 
 First, [install Meteor](https://www.meteor.com/install).
@@ -79,7 +87,7 @@ meteor npm run lint
 
 ### Prerequisites
 
-To best understand this application, it is useful to first familiarize yourself with:
+To best understand this application, it is useful to familiarize yourself with:
 
 * [Meteor Application Template React](http://ics-software-engineering.github.io/meteor-application-template-react/). This sample application illustrates conventions for directory layout, naming conventions, routing, integration of Semantic UI, and coding standards. Meteor-example-form is based on this template, so we won't discuss any of these issues here.
  
@@ -118,4 +126,6 @@ Also note that after dismissing the alert, there is a link of the Create Student
 
 You can edit the fields, then click 'Update' to save the changes. 
 
-## Screencasts
+## Screencast
+
+Watch a 35 minute screencast explaining this system at [https://www.youtube.com/watch?v=ZCHf_rNbDaM](https://www.youtube.com/watch?v=ZCHf_rNbDaM).

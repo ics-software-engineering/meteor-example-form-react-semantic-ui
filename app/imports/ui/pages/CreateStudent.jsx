@@ -7,7 +7,7 @@ import LongTextField from 'uniforms-semantic/LongTextField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import swal from 'sweetalert';
-import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-disable-line
+import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import RadioField from '../forms/controllers/RadioField';
 import { StudentFormSchema as formSchema, gpa2Number } from '../forms/StudentFormInfo';

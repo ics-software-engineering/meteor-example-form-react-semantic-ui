@@ -124,3 +124,22 @@ You can edit the fields, then click 'Update' to save the changes.
 ## Screencast
 
 Watch a 35 minute screencast explaining this system at [https://www.youtube.com/watch?v=ZCHf_rNbDaM](https://www.youtube.com/watch?v=ZCHf_rNbDaM).
+
+## About the uncaught Invariant Violation
+
+When trying to adapt this code to your own system, you may run into an "Uncaught Invariant Violation" error such as the following:
+
+```
+Uncaught Invariant Violation: Unrecognised schema: [object Object]
+    at invariant (http://localhost:3000/packages/modules.js?hash=47f8337f349efabcae6273a0f71bd738a87021b9:30144:15)
+    at createSchemaBridge (http://localhost:3000/packages/modules.js?hash=47f8337f349efabcae6273a0f71bd738a87021b9:106086:29)
+    at _class.BaseForm (http://localhost:3000/packages/modules.js?hash=47f8337f349efabcae6273a0f71bd738a87021b9:105699:50)
+```
+
+The reason for this error is that your code has not imported the Uniforms Simple Schema Bridge. You should include the following import statement in all files containing Uniforms-based forms:
+
+```
+import 'uniforms-bridge-simple-schema-2';
+```
+
+Including this import statement will fix the error.

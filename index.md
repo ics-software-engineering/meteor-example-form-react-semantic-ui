@@ -14,7 +14,7 @@ Some of the features of this example:
 
 First, [install Meteor](https://www.meteor.com/install).
 
-Second, download this repository to your computer.
+Second, download this repository to your computer. You can download it as a zip file, or you can click the "Use as template" button to create your own copy of the system, then clone it to your local computer.
 
 Third, cd into the app/ directory of your local copy of the repo, and install third party libraries with:
 

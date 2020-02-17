@@ -1,13 +1,13 @@
 ![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-form-react/master/doc/create-student-page.png)
 
-meteor-example-form-react is a sample Meteor 1.8 application that illustrates how to use [Uniforms](https://uniforms.tools/) for form development. 
+meteor-example-form-react is a sample Meteor 1.9 application that illustrates how to use [Uniforms](https://uniforms.tools/) for form development.
 
 Some of the features of this example:
 
-* In order to focus on form processing, the application has just two pages: Create Student and Edit Student. 
+* In order to focus on form processing, the application has just two pages: Create Student and Edit Student.
 * A variety of common controllers are shown: text box, text area, single selection, multiple selection, date selection, and radio boxes.
 * Two customized versions of Uniform controllers illustrate how to extend the built-in Uniforms controllers.
-* The forms in this example update two Mongo collections, illustrating the situation where there is not a one-to-one correspondence between the collection schema and the form schema. 
+* The forms in this example update two Mongo collections, illustrating the situation where there is not a one-to-one correspondence between the collection schema and the form schema.
 * There is a 35 minute [YouTube screencast](https://www.youtube.com/watch?v=ZCHf_rNbDaM) providing a walkthrough of the code.
 
 ## Installation
@@ -35,15 +35,15 @@ meteor npm run start
 
 [[[[[ ~/github/ics-software-engineering/meteor-example-form-react/app ]]]]]
 
-=> Started proxy.                             
-=> Started MongoDB.                           
+=> Started proxy.
+=> Started MongoDB.
 W20190718-11:08:30.749(-10)? (STDERR) Note: you are using a pure-JavaScript implementation of bcrypt.
 W20190718-11:08:30.770(-10)? (STDERR) While this implementation will work correctly, it is known to be
 W20190718-11:08:30.771(-10)? (STDERR) approximately three times slower than the native implementation.
 W20190718-11:08:30.771(-10)? (STDERR) In order to use the native implementation instead, run
-W20190718-11:08:30.771(-10)? (STDERR) 
+W20190718-11:08:30.771(-10)? (STDERR)
 W20190718-11:08:30.771(-10)? (STDERR)   meteor npm install --save bcrypt
-W20190718-11:08:30.771(-10)? (STDERR) 
+W20190718-11:08:30.771(-10)? (STDERR)
 W20190718-11:08:30.771(-10)? (STDERR) in the root directory of your application.
 => Started your app.
 
@@ -70,7 +70,7 @@ On some operating systems (particularly Windows), installing bcrypt is much more
 
 ### Viewing the running app
 
-If all goes well, the application will appear at [http://localhost:3000](http://localhost:3000).  
+If all goes well, the application will appear at [http://localhost:3000](http://localhost:3000).
 
 ### ESLint
 
@@ -85,8 +85,8 @@ meteor npm run lint
 To best understand this application, it is useful to familiarize yourself with:
 
 * [Meteor Application Template React](http://ics-software-engineering.github.io/meteor-application-template-react/). This sample application illustrates conventions for directory layout, naming conventions, routing, integration of Semantic UI, and coding standards. Meteor-example-form is based on this template, so we won't discuss any of these issues here.
- 
-* [Semantic UI React](https://react.semantic-ui.com/). We use Semantic UI for this template. 
+
+* [Semantic UI React](https://react.semantic-ui.com/). We use Semantic UI for this template.
 
 * [Uniforms](https://uniforms.tools/). Uniforms is a library for simplifying form management with React, and includes built-in integration with Semantic UI. It's worth reviewing [Managing forms in a Meteor/React project with the uniforms package](https://blog.meteor.com/managing-forms-in-a-meteor-react-project-with-uniforms-33d60602b43a) before looking at meteor-example-form-react.
 
@@ -119,7 +119,7 @@ Also note that after dismissing the alert, there is a link of the Create Student
 
 ![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/edit-student-page.png)
 
-You can edit the fields, then click 'Update' to save the changes. 
+You can edit the fields, then click 'Update' to save the changes.
 
 ## Screencast
 

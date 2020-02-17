@@ -1,11 +1,7 @@
 import React from 'react';
 import { Grid, Segment, Header, Form, Message } from 'semantic-ui-react';
-import AutoForm from 'uniforms-semantic/AutoForm';
-import TextField from 'uniforms-semantic/TextField';
-import DateField from 'uniforms-semantic/DateField';
-import LongTextField from 'uniforms-semantic/LongTextField';
-import SelectField from 'uniforms-semantic/SelectField';
-import SubmitField from 'uniforms-semantic/SubmitField';
+// Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
+import { AutoForm, TextField, DateField, LongTextField, SelectField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import MultiSelectField from '../forms/controllers/MultiSelectField';

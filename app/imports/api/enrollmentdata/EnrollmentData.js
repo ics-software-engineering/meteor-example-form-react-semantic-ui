@@ -11,7 +11,6 @@ const EnrollmentDataSchema = new SimpleSchema({
   enrolled: Date,
 }, { tracker: Tracker });
 
-
 /** Attach the schema to the collection. */
 EnrollmentData.attachSchema(EnrollmentDataSchema);
 

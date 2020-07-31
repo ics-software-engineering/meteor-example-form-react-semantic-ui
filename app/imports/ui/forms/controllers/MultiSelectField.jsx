@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import connectField from 'uniforms/connectField';
-import filterDOMProps from 'uniforms/filterDOMProps';
+import { connectField, filterDOMProps } from 'uniforms';
 import { Dropdown } from 'semantic-ui-react';
 import { _ } from 'meteor/underscore';
 
@@ -80,5 +79,4 @@ const MultiSelect = ({
   </div>
 );
 
-
-export default connectField(MultiSelect);
+export default connectField(MultiSelect, { kind: 'leaf' });

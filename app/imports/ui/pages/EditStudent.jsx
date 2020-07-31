@@ -7,12 +7,14 @@ import { _ } from 'meteor/underscore';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
-import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
+import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import RadioField from '../forms/controllers/RadioField';
 import { StudentFormSchema as formSchema, gpa2String, gpa2Number } from '../forms/StudentFormInfo';
 import { StudentData } from '../../api/studentdata/StudentData';
 import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
+
+const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for editing a document. */
 class EditStudent extends React.Component {
@@ -52,7 +54,7 @@ class EditStudent extends React.Component {
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Edit Student</Header>
-          <AutoForm schema={formSchema} onSubmit={data => this.submit(data)} model={model}>
+          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={model}>
             <Segment>
               <Form.Group widths={'equal'}>
                 <TextField name='name' showInlineError={true} placeholder={'Your name'}/>

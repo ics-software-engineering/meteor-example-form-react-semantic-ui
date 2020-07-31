@@ -23,7 +23,6 @@ const StudentDataSchema = new SimpleSchema({
   major: String,
 }, { tracker: Tracker });
 
-
 /** Attach the schema to the collection. */
 StudentData.attachSchema(StudentDataSchema);
 

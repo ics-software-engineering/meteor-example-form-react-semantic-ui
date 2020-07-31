@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import connectField from 'uniforms/connectField';
-import filterDOMProps from 'uniforms/filterDOMProps';
+import { connectField, filterDOMProps } from 'uniforms';
 
 /**
  * Augment the Uniforms RadioField with an 'inline' property so that radio buttons all appear on a single line.
@@ -84,4 +83,4 @@ const RadioField = ({
   </div>
 );
 
-export default connectField(RadioField);
+export default connectField(RadioField, { kind: 'leaf' });

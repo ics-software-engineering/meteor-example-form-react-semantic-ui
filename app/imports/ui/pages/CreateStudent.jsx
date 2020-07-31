@@ -3,12 +3,15 @@ import { Grid, Segment, Header, Form, Message } from 'semantic-ui-react';
 // Must use destructuring import to avoid https://github.com/vazco/uniforms/issues/433
 import { AutoForm, TextField, DateField, LongTextField, SelectField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
-import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
+import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import MultiSelectField from '../forms/controllers/MultiSelectField';
 import RadioField from '../forms/controllers/RadioField';
 import { StudentFormSchema as formSchema, gpa2Number } from '../forms/StudentFormInfo';
 import { StudentData } from '../../api/studentdata/StudentData';
 import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
+
+const bridge = new SimpleSchema2Bridge(formSchema);
+
 
 /** Renders the Page for adding a document. */
 class CreateStudent extends React.Component {
@@ -46,7 +49,7 @@ class CreateStudent extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Create Student</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
                 <Form.Group widths={'equal'}>
                   <TextField name='name' showInlineError={true} placeholder={'Your name'}/>

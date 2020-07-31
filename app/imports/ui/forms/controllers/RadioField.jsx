@@ -4,7 +4,7 @@ import { connectField, filterDOMProps } from 'uniforms';
 
 /**
  * Augment the Uniforms RadioField with an 'inline' property so that radio buttons all appear on a single line.
- * Adapted from https://github.com/vazco/uniforms/blob/master/packages/uniforms-semantic/src/RadioField.js
+ * Adapted from https://github.com/vazco/uniforms/blob/master/packages/uniforms-semantic/src/RadioField.tsx
  *
  * The MIT License (MIT)
 

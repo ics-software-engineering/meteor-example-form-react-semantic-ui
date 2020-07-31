@@ -12,7 +12,6 @@ import { EnrollmentData } from '../../api/enrollmentdata/EnrollmentData';
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-
 /** Renders the Page for adding a document. */
 class CreateStudent extends React.Component {
 

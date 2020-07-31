@@ -6,7 +6,7 @@ import { _ } from 'meteor/underscore';
 
 /**
  * Provide Semantic UI multi-select functionality.
- * Adapted from https://github.com/vazco/uniforms/blob/master/packages/uniforms-semantic/src/SelectField.js
+ * Adapted from https://github.com/vazco/uniforms/blob/master/packages/uniforms-semantic/src/SelectField.tsx
  *
  * The MIT License (MIT)
 

@@ -48,7 +48,7 @@
     "object-shorthand": "off",
     "operator-linebreak": "off",
     "padded-blocks": "off",
-    "indent": "off",
+    "indent": ["error", 2],
     "prefer-arrow-callback": "off",
     "prefer-destructuring": "off",
     "prefer-promise-reject-errors": "off"

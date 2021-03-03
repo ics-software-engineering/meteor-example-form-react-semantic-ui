@@ -11,17 +11,17 @@ import NotFound from '../pages/NotFound';
 class App extends React.Component {
   render() {
     return (
-        <Router>
-          <div>
-            <NavBar/>
-            <Switch>
-              <Route exact path="/" component={CreateStudent}/>
-              <Route path="/student/:email" component={EditStudent}/>
-              <Route component={NotFound}/>
-            </Switch>
-            <Footer/>
-          </div>
-        </Router>
+      <Router>
+        <div>
+          <NavBar/>
+          <Switch>
+            <Route exact path="/" component={CreateStudent}/>
+            <Route path="/student/:email" component={EditStudent}/>
+            <Route component={NotFound}/>
+          </Switch>
+          <Footer/>
+        </div>
+      </Router>
     );
   }
 }

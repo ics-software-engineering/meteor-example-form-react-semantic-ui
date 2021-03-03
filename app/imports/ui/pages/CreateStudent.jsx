@@ -45,29 +45,29 @@ class CreateStudent extends React.Component {
   render() {
     let fRef = null;
     return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Create Student</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
-              <Segment>
-                <Form.Group widths={'equal'}>
-                  <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
-                  <TextField name='email' showInlineError={true} placeholder={'Your email'}/>
-                </Form.Group>
-                <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
-                <Form.Group widths={'equal'}>
-                  <SelectField name='level' showInlineError={true} />
-                  <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
-                  <DateField name='enrolled' showInlineError={true}/>
-                </Form.Group>
-                <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'}/>
-                <RadioField name='major' inline showInlineError={true}/>
-                <SubmitField value='Submit'/>
-              </Segment>
-            </AutoForm>
-            {this.state.email ? <Message>Edit <a href={`/#/student/${this.state.email}`}>this data</a></Message> : ''}
-          </Grid.Column>
-        </Grid>
+      <Grid container centered>
+        <Grid.Column>
+          <Header as="h2" textAlign="center">Create Student</Header>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
+            <Segment>
+              <Form.Group widths={'equal'}>
+                <TextField name='name' showInlineError={true} placeholder={'Your name'}/>
+                <TextField name='email' showInlineError={true} placeholder={'Your email'}/>
+              </Form.Group>
+              <LongTextField name='bio' showInlineError={true} placeholder={'A bit about you'}/>
+              <Form.Group widths={'equal'}>
+                <SelectField name='level' showInlineError={true} />
+                <SelectField name='gpa' showInlineError={true} placeholder={'Select one'} />
+                <DateField name='enrolled' showInlineError={true}/>
+              </Form.Group>
+              <MultiSelectField name='hobbies' showInlineError={true} placeholder={'Select hobbies (optional)'}/>
+              <RadioField name='major' inline showInlineError={true}/>
+              <SubmitField value='Submit'/>
+            </Segment>
+          </AutoForm>
+          {this.state.email ? <Message>Edit <a href={`/#/student/${this.state.email}`}>this data</a></Message> : ''}
+        </Grid.Column>
+      </Grid>
     );
   }
 }

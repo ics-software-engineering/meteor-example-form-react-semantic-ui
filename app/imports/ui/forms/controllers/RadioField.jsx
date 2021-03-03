@@ -31,23 +31,23 @@ import { connectField, filterDOMProps } from 'uniforms';
 
 /* eslint react/prop-types: 0 */
 const RadioField = ({
-                 allowedValues,
-                 checkboxes, // eslint-disable-line no-unused-vars
-                 className,
-                 disabled,
-                 error,
-                 errorMessage,
-                 id,
-                 inline,
-                 label,
-                 name,
-                 onChange,
-                 required,
-                 showInlineError,
-                 transform,
-                 value,
-                 ...props
-               }) => (
+  allowedValues,
+  checkboxes, // eslint-disable-line no-unused-vars
+  className,
+  disabled,
+  error,
+  errorMessage,
+  id,
+  inline,
+  label,
+  name,
+  onChange,
+  required,
+  showInlineError,
+  transform,
+  value,
+  ...props
+}) => (
   <div
     className={classnames(className, { disabled, error, inline }, (inline ? '' : 'grouped'), 'fields')}
     {...filterDOMProps(props)}

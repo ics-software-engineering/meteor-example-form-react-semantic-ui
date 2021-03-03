@@ -41,30 +41,30 @@ const renderDropdown = ({ allowedValues, disabled, placeholder, onChange, transf
   }));
   return (
     <Dropdown fluid={true} multiple={true} placeholder={placeholder} selection={true} disabled={disabled}
-              options={options} onChange={(event, data) => onChange(data.value)} value={value}/>
+      options={options} onChange={(event, data) => onChange(data.value)} value={value}/>
   );
 };
 
 const MultiSelect = ({
-                       allowedValues,
-                       checkboxes,
-                       className,
-                       disabled,
-                       error,
-                       errorMessage,
-                       fieldType,
-                       id,
-                       inputRef,
-                       label,
-                       name,
-                       onChange,
-                       placeholder,
-                       required,
-                       showInlineError,
-                       transform,
-                       value,
-                       ...props
-                     }) => (
+  allowedValues,
+  checkboxes,
+  className,
+  disabled,
+  error,
+  errorMessage,
+  fieldType,
+  id,
+  inputRef,
+  label,
+  name,
+  onChange,
+  placeholder,
+  required,
+  showInlineError,
+  transform,
+  value,
+  ...props
+}) => (
   <div className={classnames({ disabled, error, required }, className, 'field')} {...filterDOMProps(props)}>
     {label && <label htmlFor={id}>{label}</label>}
     {renderDropdown({

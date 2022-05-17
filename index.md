@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-form-react/master/doc/create-student-page.png)
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-form-react-semantic-ui/master/doc/create-student-page.png)
 
 meteor-example-form-react is a sample Meteor 2.4 application that illustrates how to use [Uniforms](https://uniforms.tools/) for form development.
 
@@ -24,16 +24,16 @@ $ meteor npm install
 
 ## Running the system
 
-Once the libraries are installed, you can run the application by invoking the "start" script in the [package.json file](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/package.json):
+Once the libraries are installed, you can run the application by invoking the "start" script in the [package.json file](https://github.com/ics-software-engineering/meteor-example-form-react-semantic-ui/blob/master/app/package.json):
 
 
 ```
 meteor npm run start
 
-> meteor-example-form-react@ start /Users/philipjohnson/github/ics-software-engineering/meteor-example-form-react/app
+> meteor-example-form-react@ start /Users/philipjohnson/github/ics-software-engineering/meteor-example-form-react-semantic-ui/app
 > meteor --no-release-check --settings ../config/settings.development.json
 
-[[[[[ ~/github/ics-software-engineering/meteor-example-form-react/app ]]]]]
+[[[[[ ~/github/ics-software-engineering/meteor-example-form-react-semantic-ui/app ]]]]]
 
 => Started proxy.
 => Started MongoDB.
@@ -84,7 +84,7 @@ meteor npm run lint
 
 To best understand this application, it is useful to familiarize yourself with:
 
-* [Meteor Application Template React](http://ics-software-engineering.github.io/meteor-application-template-react/). This sample application illustrates conventions for directory layout, naming conventions, routing, integration of Semantic UI, and coding standards. Meteor-example-form is based on this template, so we won't discuss any of these issues here.
+* [Meteor Application Template React](http://ics-software-engineering.github.io/meteor-application-template-react-semantic-ui/). This sample application illustrates conventions for directory layout, naming conventions, routing, integration of Semantic UI, and coding standards. Meteor-example-form is based on this template, so we won't discuss any of these issues here.
 
 * [Semantic UI React](https://react.semantic-ui.com/). We use Semantic UI for this template.
 
@@ -94,7 +94,7 @@ To best understand this application, it is useful to familiarize yourself with:
 
 The landing page for this application provides the Create Student form:
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react-semantic-ui/raw/master/doc/create-student-page.png)
 
 This form has the following input controls:
 
@@ -103,21 +103,21 @@ This form has the following input controls:
 * Level: select field, required. Default is Freshman
 * GPA: select field, required. User must choose one.
 * Date enrolled: date field. Defaults to current time and day.
-* Hobbies: multiple select field (custom implementation of a Uniform controller, code is [here](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/imports/ui/forms/controllers/MultiSelectField.jsx)).
-* Major: select field implemented as Radio buttons (custom implementation to provide inline layout, code is [here](https://github.com/ics-software-engineering/meteor-example-form-react/blob/master/app/imports/ui/forms/controllers/RadioField.jsx)).
+* Hobbies: multiple select field (custom implementation of a Uniform controller, code is [here](https://github.com/ics-software-engineering/meteor-example-form-react-semantic-ui/blob/master/app/imports/ui/forms/controllers/MultiSelectField.jsx)).
+* Major: select field implemented as Radio buttons (custom implementation to provide inline layout, code is [here](https://github.com/ics-software-engineering/meteor-example-form-react-semantic-ui/blob/master/app/imports/ui/forms/controllers/RadioField.jsx)).
 
 A filled out but not yet submitted Create Student form looks like this:
 
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page-filled-in.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react-semantic-ui/raw/master/doc/create-student-page-filled-in.png)
 
 After submission, the page pops up an alert showing the submission was successful:
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/create-student-page-submitted.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react-semantic-ui/raw/master/doc/create-student-page-submitted.png)
 
 Also note that after dismissing the alert, there is a link of the Create Student page to a page where you can edit the document. Here is this page:
 
-![](https://github.com/ics-software-engineering/meteor-example-form-react/raw/master/doc/edit-student-page.png)
+![](https://github.com/ics-software-engineering/meteor-example-form-react-semantic-ui/raw/master/doc/edit-student-page.png)
 
 You can edit the fields, then click 'Update' to save the changes.
 
